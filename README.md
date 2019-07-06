@@ -14,7 +14,7 @@ Additionally, the ChasR GPS Tracking System can be used as part of the [AlertR A
 
 # ChasR Android Map
 
-This is the Android application showing the map for the ChasR GPS Tracking System. Its task is to fetch the encrypted location data from the server, decrypt it and show it on the map. The GPS location of the logger devices can either be viewed live to track a specific active device or as a summary of a day. For mobile devices based on Android, it is a more convenient way to display the location data instead of using the [ChasR web service)(https://alertr.de/chasr).
+This is the Android application showing the map for the ChasR GPS Tracking System. Its task is to fetch the encrypted location data from the server, decrypt it and show it on the map. The GPS location of the logger devices can either be viewed live to track a specific active device or as a summary of a day. For mobile devices based on Android, it is a more convenient way to display the location data instead of using the [ChasR web service](https://alertr.de/chasr).
 
 ![screenshot_main](img/screenshot01.png)
 ![screenshot_live](img/screenshot02.png)
