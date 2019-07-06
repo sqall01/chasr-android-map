@@ -1,0 +1,91 @@
+<!--
+ * written by sqall
+ * Twitter: https://twitter.com/sqall01
+ * Blog: https://h4des.org
+ * Github: https://github.com/sqall01
+ * Github Repository: https://github.com/sqall01/chasr-android-map
+ *
+ * This file is part of Chasr Android Logger.
+ * Licensed under GPL, either version 3, or any later.
+ * See <http://www.gnu.org/licenses/>
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="146"
+    android:viewportHeight="146"
+    android:width="18dp"
+    android:height="18dp">
+    <group
+        android:translateX="0.5"
+        android:translateY="0.5">
+        <path
+            android:pathData="M9 3H37A6 6 0 0 1 43 9V37A6 6 0 0 1 37 43H9A6 6 0 0 1 3 37V9A6 6 0 0 1 9 3Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M9 53H37A6 6 0 0 1 43 59V87A6 6 0 0 1 37 93H9A6 6 0 0 1 3 87V59A6 6 0 0 1 9 53Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M9 103H37A6 6 0 0 1 43 109V137A6 6 0 0 1 37 143H9A6 6 0 0 1 3 137V109A6 6 0 0 1 9 103Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M59 3H137A6 6 0 0 1 143 9V37A6 6 0 0 1 137 43H59A6 6 0 0 1 53 37V9A6 6 0 0 1 59 3Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M57.5 53H78.5A4.5 4.5 0 0 1 83 57.5V88.5A4.5 4.5 0 0 1 78.5 93H57.5A4.5 4.5 0 0 1 53 88.5V57.5A4.5 4.5 0 0 1 57.5 53Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M59 103H107A6 6 0 0 1 113 109V137A6 6 0 0 1 107 143H59A6 6 0 0 1 53 137V109A6 6 0 0 1 59 103Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M58 13L118 13"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 23L88 23"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 33L108 33"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 63L68 63"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 73L78 73"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 83L68 83"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 113L78 113"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 123L98 123"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M58 133L88 133"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6"
+            android:strokeMiterLimit="10" />
+    </group>
+</vector>

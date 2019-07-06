@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * written by sqall
+ * Twitter: https://twitter.com/sqall01
+ * Blog: https://h4des.org
+ * Github: https://github.com/sqall01
+ * Github Repository: https://github.com/sqall01/chasr-android-map
+ *
+ * This file is part of Chasr Android Logger.
+ * Licensed under GPL, either version 3, or any later.
+ * See <http://www.gnu.org/licenses/>
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:chasr="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="prefGroupMandatory"
+        android:title="@string/pref_group_mandatory">
+        <EditTextPreference
+            android:key="prefUsername"
+            android:title="@string/pref_username_title"
+            android:summary="@string/pref_username_summary"
+            android:inputType="textVisiblePassword|textNoSuggestions" />
+        <EditTextPreference
+            android:key="prefPass"
+            android:title="@string/pref_pass_title"
+            android:summary="@string/pref_pass_summary"
+            android:inputType="textPassword" />
+        <EditTextPreference
+            android:key="prefSecret"
+            android:title="@string/pref_secret_title"
+            android:summary="@string/pref_secret_summary"
+            android:inputType="textPassword" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="prefGroupOptional"
+        android:title="@string/pref_group_optional">
+        <de.alertr.chasrmap.UrlEditTextPreference
+            android:key="prefHost"
+            android:title="@string/pref_host_title"
+            android:summary="@string/pref_host_summary"
+            android:inputType="textUri"
+            android:defaultValue="https://alertr.de/chasr/" />
+
+        <ListPreference
+            android:key="prefUnits"
+            android:title="@string/pref_units_title"
+            android:summary="@string/pref_units_summary"
+            android:entries="@array/unitsEntries"
+            android:entryValues="@array/unitsEntries"
+            android:defaultValue="@string/pref_units_metric" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,49 @@
+<!--
+ * written by sqall
+ * Twitter: https://twitter.com/sqall01
+ * Blog: https://h4des.org
+ * Github: https://github.com/sqall01
+ * Github Repository: https://github.com/sqall01/chasr-android-map
+ *
+ * This file is part of Chasr Android Logger.
+ * Licensed under GPL, either version 3, or any later.
+ * See <http://www.gnu.org/licenses/>
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="162"
+    android:viewportHeight="72"
+    android:width="18dp"
+    android:height="18dp">
+    <group
+        android:translateX="0.5"
+        android:translateY="0.5">
+        <path
+            android:pathData="M36.18 34.5L120.82 34.5"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M24.18 34.5L40.18 29.17L36.18 34.5L40.18 39.83Z"
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M132.82 34.5L116.82 39.83L120.82 34.5L116.82 29.17Z"
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M4 64.5L4 4.5"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M154 64.5L154 4.5"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+    </group>
+</vector>

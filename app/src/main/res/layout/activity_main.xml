@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * written by sqall
+ * Twitter: https://twitter.com/sqall01
+ * Blog: https://h4des.org
+ * Github: https://github.com/sqall01
+ * Github Repository: https://github.com/sqall01/chasr-android-map
+ *
+ * This file is part of Chasr Android Logger.
+ * Licensed under GPL, either version 3, or any later.
+ * See <http://www.gnu.org/licenses/>
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryDark"
+        android:divider="@drawable/separator"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+        <Button
+            android:id="@+id/button_refresh"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="refreshBtn"
+            android:text="@string/button_refresh"
+            android:textColor="?android:attr/textColorAlertDialogListItem"
+            android:background="@drawable/button_background"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selector_elements"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/slots_18dp"
+            android:drawablePadding="5dp"
+            android:text="@string/label_slots"
+            android:textSize="@dimen/label_font_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/slots_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/map_mode"
+            android:prompt="@string/map_mode_prompt"
+            android:layout_marginStart="@dimen/status_indent"
+            android:layout_marginBottom="@dimen/spinner_bottom" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_directions_walk_white_18dp"
+            android:drawablePadding="5dp"
+            android:text="@string/label_device"
+            android:textSize="@dimen/label_font_size"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/device_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/device_prompt"
+            android:layout_marginStart="@dimen/status_indent"
+            android:layout_marginBottom="@dimen/spinner_bottom" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/mode_18dp"
+            android:drawablePadding="5dp"
+            android:text="@string/label_mode"
+            android:textSize="@dimen/label_font_size"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/mode_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/map_mode"
+            android:prompt="@string/map_mode_prompt"
+            android:layout_marginStart="@dimen/status_indent"
+            android:layout_marginBottom="@dimen/spinner_bottom" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/date_selector"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryDark"
+        android:divider="@drawable/separator"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/start_date"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startDatePickerBtn"
+            android:text="@string/button_start_date"
+            android:textColor="?android:attr/textColorAlertDialogListItem"
+            android:background="@drawable/button_background"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/end_date"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="endDatePickerBtn"
+            android:text="@string/button_end_date"
+            android:textColor="?android:attr/textColorAlertDialogListItem"
+            android:background="@drawable/button_background"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/date_viewer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:stretchColumns="1,2"
+        android:visibility="gone" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/start_date_18dp"
+                android:drawablePadding="5dp"
+                android:text="@string/label_start_date"
+                android:onClick="startDatePickerBtn"
+                android:textSize="@dimen/label_font_size"
+                android:textStyle="bold"
+                android:layout_column="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/end_date_18dp"
+                android:drawablePadding="5dp"
+                android:onClick="endDatePickerBtn"
+                android:text="@string/label_end_date"
+                android:textSize="@dimen/label_font_size"
+                android:textStyle="bold"
+                android:layout_column="2" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/start_date_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/label_font_size"
+                android:layout_marginStart="@dimen/status_indent"
+                android:layout_column="1" />
+
+            <TextView
+                android:id="@+id/end_date_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/label_font_size"
+                android:layout_marginStart="@dimen/status_indent"
+                android:layout_column="2" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryDark"
+        android:divider="@drawable/separator"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:layout_marginTop="20dp" >
+
+        <Button
+            android:id="@+id/button_map"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="mapBtn"
+            android:text="@string/button_map_live"
+            android:textColor="?android:attr/textColorAlertDialogListItem"
+            android:background="@drawable/button_background"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/colorPink"
+        android:textSize="@dimen/label_font_size"
+        android:layout_marginStart="@dimen/status_indent" />
+
+    <LinearLayout
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/loading"
+            android:textSize="@dimen/label_font_size" />
+
+    </LinearLayout>
+
+</LinearLayout>

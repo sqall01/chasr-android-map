@@ -1,0 +1,34 @@
+<!--
+ * written by sqall
+ * Twitter: https://twitter.com/sqall01
+ * Blog: https://h4des.org
+ * Github: https://github.com/sqall01
+ * Github Repository: https://github.com/sqall01/chasr-android-map
+ *
+ * This file is part of Chasr Android Logger.
+ * Licensed under GPL, either version 3, or any later.
+ * See <http://www.gnu.org/licenses/>
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="187"
+    android:viewportHeight="177"
+    android:width="18dp"
+    android:height="18dp">
+    <group
+        android:translateX="0.5"
+        android:translateY="0.5">
+        <path
+            android:pathData="M132 43A40 40 0 0 1 52 43A40 40 0 0 1 132 43Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M182 133A40 40 0 0 1 102 133A40 40 0 0 1 182 133Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+        <path
+            android:pathData="M82 133A40 40 0 0 1 2 133A40 40 0 0 1 82 133Z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="6" />
+    </group>
+</vector>

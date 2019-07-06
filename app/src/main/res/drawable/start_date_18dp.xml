@@ -1,0 +1,43 @@
+<!--
+ * written by sqall
+ * Twitter: https://twitter.com/sqall01
+ * Blog: https://h4des.org
+ * Github: https://github.com/sqall01
+ * Github Repository: https://github.com/sqall01/chasr-android-map
+ *
+ * This file is part of Chasr Android Logger.
+ * Licensed under GPL, either version 3, or any later.
+ * See <http://www.gnu.org/licenses/>
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="140.349"
+    android:viewportHeight="160.9345"
+    android:width="18dp"
+    android:height="18dp">
+    <group
+        android:translateX="0.03501129">
+        <path
+            android:pathData="M113.326 70.191c0 -2.97 -2.377 -5.376 -5.307 -5.376l-32.476 0 0 -32.428 0 -0.001c0 -2.98 -2.418 -5.397 -5.396 -5.397 -2.98 0 -5.398 2.417 -5.398 5.397l0 37.784c0 2.981 2.418 5.398 5.398 5.398l37.875 0c2.927 0 5.304 -2.407 5.304 -5.377m16.207 -0.034c0 32.798 -26.584 59.386 -59.375 59.386 -32.793 0 -59.375 -26.588 -59.375 -59.386 0 -32.798 26.582 -59.386 59.375 -59.386 32.791 0 59.375 26.588 59.375 59.386m10.781 0C140.314 31.41 108.904 0 70.158 0 31.41 0 0 31.41 0 70.157c0 38.747 31.41 70.157 70.158 70.157 38.746 0 70.156 -31.41 70.156 -70.157"
+            android:fillColor="#FFFFFF" />
+    </group>
+    <group
+        android:translateX="-11.68134"
+        android:translateY="130.7205">
+        <path
+            android:pathData="M12 25l102.32 0"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M130.32 25l-16 -8 0 8z"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+        <path
+            android:pathData="M17 30L17 5"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="10"
+            android:strokeMiterLimit="10" />
+    </group>
+</vector>
