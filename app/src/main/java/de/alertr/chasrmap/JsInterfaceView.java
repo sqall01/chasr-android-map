@@ -26,21 +26,10 @@ public class JsInterfaceView extends JsInterfaceBase {
     public void addGpsPosition(double lat, double lon, double alt, double speed, long utctime) {
         MapView activity = (MapView) context;
         activity.addGpsPosition(lat, lon, alt, speed, utctime);
-    }
 
-    @Override
-    @JavascriptInterface
-    public void startGpsPosition(double lat, double lon, double alt, double speed, long utctime) {
-        // Update labels just in case this is the only GPS position
-        // and we do not have an end position.
-        MapView activity = (MapView) context;
-        activity.updateViewLabels();
-    }
-
-    @Override
-    @JavascriptInterface
-    public void endGpsPosition(double lat, double lon, double alt, double speed, long utctime) {
-        MapView activity = (MapView) context;
+        // Update labels to visualize that app is working on the map.
+        // NOTE: this is not as efficient as just doing it at the start and end gps position,
+        // but it gives the user visual feedback that the app is doing something.
         activity.updateViewLabels();
     }
 }

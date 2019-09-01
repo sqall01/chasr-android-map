@@ -53,7 +53,9 @@ public class MapView extends AppCompatActivity {
     private TextView endTimeLabel;
     private TextView distanceLabel;
 
+    private String unitName;
     private SortedMap<Long, GpsLocation> track = new TreeMap<Long, GpsLocation>();
+    float distance = 0;
 
 
     @Override
@@ -88,6 +90,17 @@ public class MapView extends AppCompatActivity {
         endTimeLabel = findViewById(R.id.end_time);
         distanceLabel = findViewById(R.id.distance);
         map = findViewById(R.id.map);
+
+        // Set preferred unit.
+        unitName = getString(R.string.unit_kilometer);
+        if(pref_units.equals(getString(R.string.pref_units_imperial))) {
+            distance *= GpsLocation.KM_MILE;
+            unitName = getString(R.string.unit_mile);
+        }
+        else if (pref_units.equals(getString(R.string.pref_units_nautical))) {
+            distance *= GpsLocation.KM_NMILE;
+            unitName = getString(R.string.unit_nmile);
+        }
 
 
 
@@ -184,8 +197,17 @@ public class MapView extends AppCompatActivity {
      * @param utctime timestamp
      */
     public void addGpsPosition(double lat, double lon, double alt, double speed, long utctime) {
-        GpsLocation location = new GpsLocation(lat, lon, alt, speed, utctime);
-        track.put(utctime, location);
+
+        GpsLocation curr = new GpsLocation(lat, lon, alt, speed, utctime);
+
+        // Calculate track distance by adding the distance to the current position.
+        if(!track.isEmpty()) {
+            GpsLocation prev = track.get(track.lastKey());
+            distance += prev.distanceTo(curr);
+        }
+
+        // Add new GPS position to track.
+        track.put(utctime, curr);
     }
 
     /**
@@ -232,32 +254,8 @@ public class MapView extends AppCompatActivity {
         timeString = df.format(updateDate);
         endTimeLabel.setText(timeString);
 
-        // Calculate track distance.
-        float distance = 0;
-        if(track.size() > 1) {
-            GpsLocation prev = null;
-            for(Map.Entry<Long, GpsLocation> entry : track.entrySet()) {
-                GpsLocation curr = entry.getValue();
-                if(prev == null) {
-                    prev = curr;
-                    continue;
-                }
-                distance += prev.distanceTo(curr);
-                prev = curr;
-            }
-        }
-        String unitName = getString(R.string.unit_kilometer);
-        if(pref_units.equals(getString(R.string.pref_units_imperial))) {
-            distance *= GpsLocation.KM_MILE;
-            unitName = getString(R.string.unit_mile);
-        }
-        else if (pref_units.equals(getString(R.string.pref_units_nautical))) {
-            distance *= GpsLocation.KM_NMILE;
-            unitName = getString(R.string.unit_nmile);
-        }
         String distanceText = String.format(Locale.getDefault(), "%.2f", distance / 1000);
         distanceText += " " + unitName;
         distanceLabel.setText(distanceText);
     }
-
 }
