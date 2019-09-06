@@ -18,7 +18,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -29,11 +30,21 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <TableLayout
+        android:id="@+id/view_labels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
         android:stretchColumns="2" >
+
+        <TextView
+            android:id="@+id/view_loader_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/label_font_size"
+            android:textAlignment="center"
+            android:visibility="gone" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -115,6 +126,7 @@
                 android:layout_column="2" />
 
         </TableRow>
+
     </TableLayout>
 
     <LinearLayout

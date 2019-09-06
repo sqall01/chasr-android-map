@@ -66,4 +66,5 @@
     <string name="view_start">Start am:</string>
     <string name="view_end">Ende am:</string>
     <string name="view_distance">Entfernung:</string>
+    <string name="view_decrypting">Entschlüssele Position %d/%d</string>
 </resources>

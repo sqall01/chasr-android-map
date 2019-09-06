@@ -100,4 +100,21 @@ public abstract class JsInterfaceBase {
     @JavascriptInterface
     public void endGpsPosition(double lat, double lon, double alt, double speed, long utctime) {
     }
+
+    @JavascriptInterface
+    public void startDecryptAllGpsPositions(int numPositions) {
+    }
+
+    @JavascriptInterface
+    public void endDecryptAllGpsPositions(int numPositions) {
+    }
+
+    @JavascriptInterface
+    public void startDecryptGpsPosition(int numPosition) {
+    }
+
+    @JavascriptInterface
+    public void endDecryptGpsPosition(int numPosition) {
+    }
+
 }

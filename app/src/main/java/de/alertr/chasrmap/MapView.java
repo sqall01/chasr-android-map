@@ -31,7 +31,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-import java.util.Map;
 import java.util.SortedMap;
 import java.util.TimeZone;
 import java.util.TreeMap;
@@ -52,6 +51,7 @@ public class MapView extends AppCompatActivity {
     private TextView startTimeLabel;
     private TextView endTimeLabel;
     private TextView distanceLabel;
+    private TextView loadingLabel;
 
     private String unitName;
     private SortedMap<Long, GpsLocation> track = new TreeMap<Long, GpsLocation>();
@@ -86,6 +86,7 @@ public class MapView extends AppCompatActivity {
             endTime = 0;
         }
 
+        loadingLabel = findViewById(R.id.view_loader_text);
         startTimeLabel = findViewById(R.id.start_time);
         endTimeLabel = findViewById(R.id.end_time);
         distanceLabel = findViewById(R.id.distance);
@@ -119,6 +120,12 @@ public class MapView extends AppCompatActivity {
 
         String userAgent = this.getString(R.string.app_name) + "/" + BuildConfig.VERSION_NAME +
                 "; " + System.getProperty("http.agent");
+
+        // TODO Android dev user agent
+        userAgent = this.getString(R.string.app_name) + " Test/" + BuildConfig.VERSION_NAME +
+                "; " + System.getProperty("http.agent");
+
+
         webSettings.setUserAgentString(userAgent);
     }
 
@@ -257,5 +264,26 @@ public class MapView extends AppCompatActivity {
         String distanceText = String.format(Locale.getDefault(), "%.2f", distance / 1000);
         distanceText += " " + unitName;
         distanceLabel.setText(distanceText);
+    }
+
+    /**
+     * Show loader
+     */
+    public void showLoader() {
+        loadingLabel.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Hide loader
+     */
+    public void hideLoader() {
+        loadingLabel.setVisibility(View.GONE);
+    }
+
+    /**
+     * Sets loader text
+     */
+    public void setLoaderText(String text) {
+        loadingLabel.setText(text);
     }
 }

@@ -6,7 +6,7 @@ android {
         applicationId "de.alertr.chasrmap"
         minSdkVersion 26
         targetSdkVersion 28
-        versionCode 13
+        versionCode 15
         versionName "1.0"
     }
     buildTypes {

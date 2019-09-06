@@ -17,6 +17,8 @@ import android.webkit.JavascriptInterface;
 
 public class JsInterfaceView extends JsInterfaceBase {
 
+    private int numGpsPositions;
+
     public JsInterfaceView(Context ctx) {
         super(ctx);
     }
@@ -31,5 +33,45 @@ public class JsInterfaceView extends JsInterfaceBase {
         // NOTE: this is not as efficient as just doing it at the start and end gps position,
         // but it gives the user visual feedback that the app is doing something.
         activity.updateViewLabels();
+    }
+
+    @Override
+    @JavascriptInterface
+    public void startDecryptAllGpsPositions(int numPositions) {
+        numGpsPositions = numPositions;
+
+        // Show loader to make state visible.
+        MapView activity = (MapView) context;
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                MapView activity = (MapView) context;
+                activity.showLoader();
+            }
+        });
+    }
+
+    @Override
+    @JavascriptInterface
+    public void endDecryptAllGpsPositions(int numPositions) {
+        // Hide loader since we are done decrypting.
+        MapView activity = (MapView) context;
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                MapView activity = (MapView) context;
+                activity.hideLoader();
+            }
+        });
+    }
+
+    @Override
+    @JavascriptInterface
+    public void startDecryptGpsPosition(int numPosition) {
+        // Set state in loader.
+        MapView activity = (MapView) context;
+        activity.setLoaderText(activity.getString(R.string.view_decrypting,
+                                      numPosition+1,
+                                                  numGpsPositions));
     }
 }
