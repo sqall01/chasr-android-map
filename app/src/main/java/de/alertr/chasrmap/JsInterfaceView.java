@@ -74,23 +74,6 @@ public class JsInterfaceView extends JsInterfaceBase {
 
     @Override
     @JavascriptInterface
-    public void endDecryptAllGpsPositions(int numPositions) {
-        /*
-        // Hide loader since we are done decrypting.
-        MapView activity = (MapView) context;
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                MapView activity = (MapView) context;
-                activity.hideLoader();
-            }
-        });
-
-         */
-    }
-
-    @Override
-    @JavascriptInterface
     public void startDecryptGpsPosition(int numPosition) {
         // Set state in loader.
         if(numPosition % 10 == 0) {
