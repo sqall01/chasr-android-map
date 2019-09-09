@@ -29,10 +29,31 @@ public class JsInterfaceView extends JsInterfaceBase {
         MapView activity = (MapView) context;
         activity.addGpsPosition(lat, lon, alt, speed, utctime);
 
-        // Update labels to visualize that app is working on the map.
-        // NOTE: this is not as efficient as just doing it at the start and end gps position,
-        // but it gives the user visual feedback that the app is doing something.
-        activity.updateViewLabels();
+        int currTrackSize = activity.getTrackSize();
+
+        if(currTrackSize == 1) {
+            activity.setLoaderText(activity.getString(R.string.view_processing));
+        }
+
+        // Hide loader since we have added every gps position.
+        if(numGpsPositions <= currTrackSize) {
+
+            activity.updateViewLabels();
+
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    MapView activity = (MapView) context;
+                    activity.hideLoader();
+                }
+            });
+        }
+        else if((currTrackSize-1) % 10 == 0) {
+            // Update labels to visualize that app is working on the map.
+            // NOTE: this is not as efficient as just doing it at the start and end gps position,
+            // but it gives the user visual feedback that the app is doing something.
+            activity.updateViewLabels();
+        }
     }
 
     @Override
@@ -54,6 +75,7 @@ public class JsInterfaceView extends JsInterfaceBase {
     @Override
     @JavascriptInterface
     public void endDecryptAllGpsPositions(int numPositions) {
+        /*
         // Hide loader since we are done decrypting.
         MapView activity = (MapView) context;
         activity.runOnUiThread(new Runnable() {
@@ -63,15 +85,19 @@ public class JsInterfaceView extends JsInterfaceBase {
                 activity.hideLoader();
             }
         });
+
+         */
     }
 
     @Override
     @JavascriptInterface
     public void startDecryptGpsPosition(int numPosition) {
         // Set state in loader.
-        MapView activity = (MapView) context;
-        activity.setLoaderText(activity.getString(R.string.view_decrypting,
-                                      numPosition+1,
-                                                  numGpsPositions));
+        if(numPosition % 10 == 0) {
+            MapView activity = (MapView) context;
+            activity.setLoaderText(activity.getString(R.string.view_decrypting,
+                    numPosition + 1,
+                    numGpsPositions));
+        }
     }
 }

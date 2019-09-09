@@ -69,6 +69,7 @@
     <string name="view_end">End at:</string>
     <string name="view_distance">Distance:</string>
     <string name="view_decrypting">Decrypting Position %d/%d</string>
+    <string name="view_processing">Processing Positions</string>
     <string name="unit_nmile" translatable="false">nm</string>
     <string name="unit_kilometer" translatable="false">km</string>
     <string name="unit_mile" translatable="false">mi</string>

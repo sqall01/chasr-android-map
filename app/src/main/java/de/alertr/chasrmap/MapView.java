@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.security.MessageDigest;
@@ -48,10 +49,12 @@ public class MapView extends AppCompatActivity {
     private long endTime;
 
     private WebView map;
+    private LinearLayout loader;
     private TextView startTimeLabel;
     private TextView endTimeLabel;
     private TextView distanceLabel;
     private TextView loadingLabel;
+
 
     private String unitName;
     private SortedMap<Long, GpsLocation> track = new TreeMap<Long, GpsLocation>();
@@ -91,6 +94,7 @@ public class MapView extends AppCompatActivity {
         endTimeLabel = findViewById(R.id.end_time);
         distanceLabel = findViewById(R.id.distance);
         map = findViewById(R.id.map);
+        loader = findViewById(R.id.view_loader);
 
         // Set preferred unit.
         unitName = getString(R.string.unit_kilometer);
@@ -270,14 +274,14 @@ public class MapView extends AppCompatActivity {
      * Show loader
      */
     public void showLoader() {
-        loadingLabel.setVisibility(View.VISIBLE);
+        loader.setVisibility(View.VISIBLE);
     }
 
     /**
      * Hide loader
      */
     public void hideLoader() {
-        loadingLabel.setVisibility(View.GONE);
+        loader.setVisibility(View.GONE);
     }
 
     /**
@@ -285,5 +289,13 @@ public class MapView extends AppCompatActivity {
      */
     public void setLoaderText(String text) {
         loadingLabel.setText(text);
+    }
+
+    /**
+     * Gets size of stored track
+     * @return size of current track
+     */
+    public int getTrackSize() {
+        return track.size();
     }
 }
