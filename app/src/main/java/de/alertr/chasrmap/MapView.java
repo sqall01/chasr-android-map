@@ -125,12 +125,25 @@ public class MapView extends AppCompatActivity {
         String userAgent = this.getString(R.string.app_name) + "/" + BuildConfig.VERSION_NAME +
                 "; " + System.getProperty("http.agent");
 
+        /*
         // TODO Android dev user agent
         userAgent = this.getString(R.string.app_name) + " Test/" + BuildConfig.VERSION_NAME +
                 "; " + System.getProperty("http.agent");
+         */
 
 
         webSettings.setUserAgentString(userAgent);
+
+        // Request map (do it onCreate since otherwise we reload the page each time
+        // the app comes up to the foreground).
+        String url = pref_host + "/map.php#mode=view" +
+                "&device_name=" + device +
+                "&secret_hash=" + pref_secret_hash +
+                "&start=" + startTime +
+                "&end=" + endTime;
+        String auth = WebHelper.PARAM_USER + "=" + pref_username;
+        auth += "&" + WebHelper.PARAM_PASS + "=" + pref_password;
+        map.postUrl(url, auth.getBytes());
     }
 
     /**
@@ -142,15 +155,6 @@ public class MapView extends AppCompatActivity {
         if (Logger.DEBUG) {
             Log.d(TAG, "[onResume]");
         }
-
-        String url = pref_host + "/map.php#mode=view" +
-                "&device_name=" + device +
-                "&secret_hash=" + pref_secret_hash +
-                "&start=" + startTime +
-                "&end=" + endTime;
-        String auth = WebHelper.PARAM_USER + "=" + pref_username;
-        auth += "&" + WebHelper.PARAM_PASS + "=" + pref_password;
-        map.postUrl(url, auth.getBytes());
     }
 
     @Override
